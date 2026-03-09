@@ -71,39 +71,39 @@ with plt.xkcd():
         x_fill = np.linspace(x1, x2, 100)
         ax1.fill_between(x_fill, norm.pdf(x_fill, mu, error_est), 0, facecolor='none', edgecolor=color_pluma, hatch='////')
         ax1.set_xticks([x1, mu, x2])
-        ax1.set_xticklabels([f'{x1}', f'μ={mu}', f'{x2}'], color=color_pluma, fontsize=12)
+        ax1.set_xticklabels([f'{x1}', f'μ={mu}', f'{x2}'], color=color_pluma, fontsize=12, rotation=45)
         
         # Área Z
         z_fill = np.linspace(z1, z2, 100)
         ax2.fill_between(z_fill, norm.pdf(z_fill, 0, 1), 0, facecolor='none', edgecolor=color_pluma, hatch='////')
         ax2.set_xticks([z1, 0, z2])
-        ax2.set_xticklabels([f'{z1:.2f}', '0', f'{z2:.2f}'], color=color_pluma, fontsize=12)
+        ax2.set_xticklabels([f'{z1:.2f}', '0', f'{z2:.2f}'], color=color_pluma, fontsize=12, rotation=45)
 
     elif tipo_calculo == "Menor que (<)":
         # Área Real
         x_fill = np.linspace(mu - 4*error_est, x_val, 100)
         ax1.fill_between(x_fill, norm.pdf(x_fill, mu, error_est), 0, facecolor='none', edgecolor=color_pluma, hatch='////')
         ax1.set_xticks([x_val, mu])
-        ax1.set_xticklabels([f'{x_val}', f'μ={mu}'], color=color_pluma, fontsize=12)
+        ax1.set_xticklabels([f'{x_val}', f'μ={mu}'], color=color_pluma, fontsize=12, rotation=45)
         
         # Área Z
         z_fill = np.linspace(-4, z_val, 100)
         ax2.fill_between(z_fill, norm.pdf(z_fill, 0, 1), 0, facecolor='none', edgecolor=color_pluma, hatch='////')
         ax2.set_xticks([z_val, 0])
-        ax2.set_xticklabels([f'{z_val:.2f}', '0'], color=color_pluma, fontsize=12)
+        ax2.set_xticklabels([f'{z_val:.2f}', '0'], color=color_pluma, fontsize=12, rotation=45)
 
     else: # Mayor que (>)
         # Área Real
         x_fill = np.linspace(x_val, mu + 4*error_est, 100)
         ax1.fill_between(x_fill, norm.pdf(x_fill, mu, error_est), 0, facecolor='none', edgecolor=color_pluma, hatch='////')
         ax1.set_xticks([mu, x_val])
-        ax1.set_xticklabels([f'μ={mu}', f'{x_val}'], color=color_pluma, fontsize=12)
+        ax1.set_xticklabels([f'μ={mu}', f'{x_val}'], color=color_pluma, fontsize=12, rotation=45)
         
         # Área Z
         z_fill = np.linspace(z_val, 4, 100)
         ax2.fill_between(z_fill, norm.pdf(z_fill, 0, 1), 0, facecolor='none', edgecolor=color_pluma, hatch='////')
         ax2.set_xticks([0, z_val])
-        ax2.set_xticklabels(['0', f'{z_val:.2f}'], color=color_pluma, fontsize=12)
+        ax2.set_xticklabels(['0', f'{z_val:.2f}'], color=color_pluma, fontsize=12, rotation=45)
 
     # Limpiar bordes para ambas gráficas
     for ax in [ax1, ax2]:
